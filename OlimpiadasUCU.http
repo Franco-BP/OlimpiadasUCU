@@ -1,0 +1,6 @@
+@OlimpiadasUCU_HostAddress = http://localhost:5253
+
+GET {{OlimpiadasUCU_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
