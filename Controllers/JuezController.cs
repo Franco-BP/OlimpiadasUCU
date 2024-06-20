@@ -14,16 +14,16 @@ public class JuezController : ControllerBase
     return new JuezDTO();
   }
 
-  // POST > 'api/juez/login/{id}'
-  [HttpPost("login")]
-  public JuezDTO Login([FromBody] string nickname, [FromBody] string contrasenia)
+  // POST > 'api/juez/login/{nickname}'
+  [HttpPost("login/{nickname}")]
+  public JuezDTO Login(string nickname, [FromBody] string contrasenia)
   {
     return new JuezDTO();
   }
 
   // POST > 'api/juez'
   [HttpPost]
-  public JuezDTO Create([FromBody] JuezDTO juez, [FromBody] string contrasenia)
+  public JuezDTO Create(JuezDTO juez)
   {
     return new JuezDTO();
   }
