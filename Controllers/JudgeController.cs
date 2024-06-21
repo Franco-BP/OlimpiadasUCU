@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using OlimpiadasUCU.DTO;
-using OlimpiadasUCU.Models;
 using OlimpiadasUCU.Services;
 
 namespace OlimpiadasUCU.Controllers;

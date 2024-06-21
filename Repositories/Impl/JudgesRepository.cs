@@ -1,19 +1,25 @@
 using AutoMapper;
 using OlimpiadasUCU.DTO;
 using OlimpiadasUCU.Models;
+using OlimpiadasUCU.Database;
 
 namespace OlimpiadasUCU.Repositories.Impl;
 
-public class JudgesRepository(IMapper mapper) : IJudgesRepository
+public class JudgesRepository : IJudgesRepository
 {
-  private List<Judge> JudgesRegistered => new List<Judge>();
-  private IMapper Mapper => mapper;
+  private readonly IMapper Mapper;
+  private readonly DatabaseSingleton dataBase;
+  public JudgesRepository(IMapper mapper)
+  {
+    this.Mapper = mapper;
+    this.dataBase = DatabaseSingleton.GetInstance();
+  }
 
   public JudgeDTO Get(string nickname)
   {
     Console.WriteLine("Getting: " + nickname);
-    Judge? judge = JudgesRegistered.Find(judge => judge.Nickname == nickname);
-    Console.WriteLine("List: " + JudgesRegistered.ToString() + "\nGet: " + judge);
+    Judge? judge = dataBase.JudgesRegistered.Find(judge => judge.Nickname == nickname);
+    Console.WriteLine("List: " + dataBase.JudgesRegistered.Count + "\nGet: " + judge);
     if (judge != null)
     {
       return Mapper.Map<JudgeDTO>(judge);
@@ -27,23 +33,25 @@ public class JudgesRepository(IMapper mapper) : IJudgesRepository
     Judge newJudge = Mapper.Map<Judge>(judgeDTO);
     // Password is ignored in Mapper to avoid security issues.
     newJudge.Password = judgeDTO.Password;
-    JudgesRegistered.Add(newJudge);
+    dataBase.JudgesRegistered.Add(newJudge);
+    Console.WriteLine("List: " + dataBase.JudgesRegistered.Count);
     return judgeDTO;
   }
 
   public List<JudgeDTO> GetAll()
   {
     List<JudgeDTO> judgeDTOList = new List<JudgeDTO>();
-    foreach(Judge element in JudgesRegistered)
+    foreach(Judge element in dataBase.JudgesRegistered)
     {
       judgeDTOList.Add(Mapper.Map<JudgeDTO>(element));
     }
+    Console.WriteLine("List: " + dataBase.JudgesRegistered.Count);
     return judgeDTOList;
   }
 
   public JudgeDTO Login(JudgeDTO judgeDTO)
   {
-    Judge? judge = JudgesRegistered.Find(element => (element.Nickname == judgeDTO.Nickname) && (element.Password == judgeDTO.Password));
+    Judge? judge = dataBase.JudgesRegistered.Find(element => (element.Nickname == judgeDTO.Nickname) && (element.Password == judgeDTO.Password));
     if (judge != null)
     {
       return Mapper.Map<JudgeDTO>(judge);
