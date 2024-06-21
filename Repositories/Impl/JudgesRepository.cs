@@ -12,8 +12,8 @@ public class JudgesRepository(IMapper mapper) : IJudgesRepository
   public JudgeDTO Get(string nickname)
   {
     Console.WriteLine("Getting: " + nickname);
-    Judge? judge = JudgesRegistered.Find(judge => judge.Nickname.ToLower() == nickname.ToLower());
-    Console.WriteLine("List: " + JudgesRegistered[0] + "\nGet: " + judge);
+    Judge? judge = JudgesRegistered.Find(judge => judge.Nickname == nickname);
+    Console.WriteLine("List: " + JudgesRegistered.ToString() + "\nGet: " + judge);
     if (judge != null)
     {
       return Mapper.Map<JudgeDTO>(judge);
