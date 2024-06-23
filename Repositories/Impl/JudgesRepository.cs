@@ -59,4 +59,15 @@ public class JudgesRepository : IJudgesRepository
       return new JudgeDTO();
     }
   }
+
+  // NOT IMPLEMENTED
+  public JudgeDTO Update(JudgeDTO dto)
+  {
+    throw new NotImplementedException();
+  }
+  // NOT IMPLEMENTED
+  public void Delete(JudgeDTO dto)
+  {
+    throw new NotImplementedException();
+  }
 }
