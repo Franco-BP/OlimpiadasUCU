@@ -26,4 +26,16 @@ public class JudgeServiceImpl(IJudgesRepository judgesRepository) : IJudgeServic
   {
     return JudgesRepository.Login(judgeDTO);
   }
+
+  // NOT IMPLEMENTED
+  public JudgeDTO Update(JudgeDTO dto)
+  {
+      throw new NotImplementedException();
+  }
+
+  // NOT IMPLEMENTED
+  public void Delete(JudgeDTO dto)
+  {
+      throw new NotImplementedException();
+  }
 }
