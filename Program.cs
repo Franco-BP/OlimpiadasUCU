@@ -1,13 +1,13 @@
-using OlimpiadasUCU.Services;
-using OlimpiadasUCU.Services.Impl;
 using OlimpiadasUCU.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder = BuilderServices.AddServices(builder);
+// Create the App director
+WebApplicationDirector director = new WebApplicationDirector(builder);
 
-var app = builder.Build();
+// Make the application.
+builder = director.MakeWebApplication();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
