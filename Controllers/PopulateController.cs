@@ -38,6 +38,15 @@ public class PopulateController() : ControllerBase
       };
       database.Competitions.Add(singleCompetition);
 
+      GroupCompetition groupCompetition = new()
+      {
+        Id = i+11,
+        Round = i + 20,
+        Description = $"Group Competition Description {i}",
+        Date = new DateTime(2000 + i, 06, 27)
+      };
+      database.Competitions.Add(groupCompetition);
+
       Participant participant = new()
       {
         Id = i,
