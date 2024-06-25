@@ -30,12 +30,12 @@ public class JudgeServiceImpl(IJudgesRepository judgesRepository) : IJudgeServic
   // NOT IMPLEMENTED
   public JudgeDTO Update(JudgeDTO dto)
   {
-      throw new NotImplementedException();
+    throw new NotImplementedException();
   }
 
   // NOT IMPLEMENTED
-  public void Delete(JudgeDTO dto)
+  public void Delete(int id)
   {
-      throw new NotImplementedException();
+    throw new NotImplementedException();
   }
 }
