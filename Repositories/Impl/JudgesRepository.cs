@@ -23,7 +23,9 @@ public class JudgesRepository : IJudgesRepository
     if (judge != null)
     {
       return Mapper.Map<JudgeDTO>(judge);
-    } else {
+    }
+    else
+    {
       return new JudgeDTO();
     }
   }
@@ -41,7 +43,7 @@ public class JudgesRepository : IJudgesRepository
   public List<JudgeDTO> GetAll()
   {
     List<JudgeDTO> judgeDTOList = new List<JudgeDTO>();
-    foreach(Judge element in dataBase.JudgesRegistered)
+    foreach (Judge element in dataBase.JudgesRegistered)
     {
       judgeDTOList.Add(Mapper.Map<JudgeDTO>(element));
     }
@@ -55,7 +57,9 @@ public class JudgesRepository : IJudgesRepository
     if (judge != null)
     {
       return Mapper.Map<JudgeDTO>(judge);
-    } else {
+    }
+    else
+    {
       return new JudgeDTO();
     }
   }
@@ -66,7 +70,7 @@ public class JudgesRepository : IJudgesRepository
     throw new NotImplementedException();
   }
   // NOT IMPLEMENTED
-  public void Delete(JudgeDTO dto)
+  public void Delete(int id)
   {
     throw new NotImplementedException();
   }
