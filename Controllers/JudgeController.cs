@@ -12,9 +12,9 @@ public class JudgeController(IJudgeService judgeService) : ControllerBase
 
   // GET > 'api/judge/{nickname}'
   [HttpGet("{nickname}")]
-  public JudgeDTO Get(string nickname)
+  public JudgeDTO GetByName(string nickname)
   {
-    return JudgeService.Get(nickname);
+    return JudgeService.GetByName(nickname);
   }
 
   // GET > 'api/judge/getAll'
@@ -40,9 +40,9 @@ public class JudgeController(IJudgeService judgeService) : ControllerBase
 
   // DELETE > 'api/judge/{id}
   [HttpDelete("{nickname}")]
-  public void Delete(int id)
+  public void DeleteByNickname(string nickname)
   {
-    JudgeService.Delete(id);
+    JudgeService.DeleteByNickname(nickname);
   }
 
   // POST > 'api/judge/login'

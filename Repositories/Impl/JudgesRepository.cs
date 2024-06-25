@@ -33,7 +33,6 @@ public class JudgesRepository : IJudgesRepository
   public JudgeDTO Create(JudgeDTO judgeDTO)
   {
     Judge newJudge = Mapper.Map<Judge>(judgeDTO);
-    // Password is ignored in Mapper to avoid security issues.
     newJudge.Password = judgeDTO.Password;
     dataBase.JudgesRegistered.Add(newJudge);
     Console.WriteLine("List: " + dataBase.JudgesRegistered.Count);
@@ -64,14 +63,20 @@ public class JudgesRepository : IJudgesRepository
     }
   }
 
-  // NOT IMPLEMENTED
   public JudgeDTO Update(JudgeDTO dto)
   {
     throw new NotImplementedException();
   }
-  // NOT IMPLEMENTED
+
   public void Delete(int id)
   {
-    throw new NotImplementedException();
+    throw new NotImplementedException("Delete by id is not supported for Judge.");
   }
+
+  public void DeleteByNickname(string nickname)
+  {
+    var judge = dataBase.JudgesRegistered.Find(c => c.Nickname == nickname);
+    dataBase.JudgesRegistered.Remove(judge);
+  }
+
 }

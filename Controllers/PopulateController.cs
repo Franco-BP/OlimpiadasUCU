@@ -59,12 +59,12 @@ public class PopulateController() : ControllerBase
 
       Result result = new()
       {
-        CompetitionNumber = singleCompetition.Id,
+        Id = singleCompetition.Id,
         ResultValue = 10+i,
         Comment = $"Comment for Result-{i}",
         Position = 5 + i,
-        Participant = participant,
-        Competition = singleCompetition
+        ParticipantId = participant,
+        CompetitionId = singleCompetition
       };
       database.Results.Add(result);
 
