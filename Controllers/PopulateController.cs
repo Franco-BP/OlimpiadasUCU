@@ -29,15 +29,14 @@ public class PopulateController() : ControllerBase
       };
       database.JudgesRegistered.Add(judge);
 
-      // GroupCompetition competition = new()
-      // {
-      //     Id = i,
-      //     Round = i + 10,
-      //     Description = $"Competition Description {i}",
-      //     Date = new DateTime(2000 + i, 06, 27),
-      //     JudgeNickname = judge.Nickname
-      // };
-      // database.Competitions.Add(competition);
+      SingleCompetition singleCompetition = new()
+      {
+        Id = i,
+        Round = i + 10,
+        Description = $"Competition Description {i}",
+        Date = new DateTime(2000 + i, 06, 27)
+      };
+      database.Competitions.Add(singleCompetition);
 
       Participant participant = new()
       {
@@ -49,15 +48,16 @@ public class PopulateController() : ControllerBase
       };
       database.Participants.Add(participant);
 
-      // Result result = new()
-      // {
-      //   Id = i,
-      //   ResultValue = 10+i,
-      //   Comment = $"Comment for Result-{i}",
-      //   Position = 5 + i,
-      //   ParticipantId = participant.Id,
-      // };
-      // database.Results.Add(result);
+      Result result = new()
+      {
+        CompetitionNumber = singleCompetition.Id,
+        ResultValue = 10+i,
+        Comment = $"Comment for Result-{i}",
+        Position = 5 + i,
+        Participant = participant,
+        Competition = singleCompetition
+      };
+      database.Results.Add(result);
     }
   }
 }

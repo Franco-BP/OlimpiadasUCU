@@ -4,34 +4,34 @@ namespace OlimpiadasUCU.Services
 {
     public interface IResultService
     {
-        ResultDto Get(int competitionNumber);
-        List<ResultDto> GetAll();
-        ResultDto Create(ResultDto resultDto);
-        ResultDto Update(int competitionNumber, ResultDto resultDto);
+        ResultDTO Get(int competitionNumber);
+        List<ResultDTO> GetAll();
+        ResultDTO Create(ResultDTO resultDto);
+        ResultDTO Update(int competitionNumber, ResultDTO resultDto);
         bool Delete(int competitionNumber);
     }
 
     public class ResultService : IResultService
     {
-        private readonly List<ResultDto> _results = new List<ResultDto>();
+        private readonly List<ResultDTO> _results = new List<ResultDTO>();
 
-        public ResultDto Get(int competitionNumber)
+        public ResultDTO Get(int competitionNumber)
         {
             return _results.FirstOrDefault(r => r.CompetitionNumber == competitionNumber);
         }
 
-        public List<ResultDto> GetAll()
+        public List<ResultDTO> GetAll()
         {
             return _results;
         }
 
-        public ResultDto Create(ResultDto resultDto)
+        public ResultDTO Create(ResultDTO resultDto)
         {
             _results.Add(resultDto);
             return resultDto;
         }
 
-        public ResultDto Update(int competitionNumber, ResultDto resultDto)
+        public ResultDTO Update(int competitionNumber, ResultDTO resultDto)
         {
             var existingResult = Get(competitionNumber);
             if (existingResult == null)
