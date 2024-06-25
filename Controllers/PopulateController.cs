@@ -67,6 +67,19 @@ public class PopulateController() : ControllerBase
         Competition = singleCompetition
       };
       database.Results.Add(result);
+
+      Team team = new()
+      {
+        Id = i,
+        Number = i,
+        Country = $"Team{i}",
+        ParticipantsAmount = 1,
+        Participants = new()
+        {
+          participant
+        }
+      };
+      database.Teams.Add(team);
     }
   }
 }

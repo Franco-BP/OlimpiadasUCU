@@ -12,6 +12,15 @@ public class AutoMapperProfile : Profile
       .ForMember(dest => dest.Password, opt => opt.Ignore())
       .ReverseMap();
 
+    CreateMap<Participant, ParticipantDTO>()
+      .ReverseMap();
+
+    CreateMap<Result, ResultDTO>()
+      .ReverseMap();
+
+    CreateMap<Team, TeamDTO>()
+      .ReverseMap();
+
     CreateMap<Competition, CompetitionDTO>()
        .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
        .ForMember(dest => dest.Round, opt => opt.MapFrom(src => src.Round))
