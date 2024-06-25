@@ -7,9 +7,14 @@ public class JudgeServiceImpl(IJudgesRepository judgesRepository) : IJudgeServic
 {
   private IJudgesRepository JudgesRepository => judgesRepository;
 
-  public JudgeDTO Get(string nickname)
+  public JudgeDTO GetByName(string nickname)
   {
     return JudgesRepository.Get(nickname);
+  }
+
+  public JudgeDTO Get(int id)
+  {
+    throw new NotImplementedException("Get by id is not supported for Judge.");
   }
 
   public JudgeDTO Create(JudgeDTO judgeDTO)
@@ -26,16 +31,19 @@ public class JudgeServiceImpl(IJudgesRepository judgesRepository) : IJudgeServic
   {
     return JudgesRepository.Login(judgeDTO);
   }
-
-  // NOT IMPLEMENTED
   public JudgeDTO Update(JudgeDTO dto)
   {
-    throw new NotImplementedException();
+    return JudgesRepository.Update(dto);
   }
 
-  // NOT IMPLEMENTED
   public void Delete(int id)
   {
-    throw new NotImplementedException();
+    throw new NotImplementedException("Delete by id is not supported for Judge.");
   }
+
+  public void DeleteByNickname(string nickname)
+  {
+    JudgesRepository.DeleteByNickname(nickname);
+  }
+
 }
