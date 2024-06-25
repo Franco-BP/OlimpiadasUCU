@@ -10,5 +10,7 @@ namespace OlimpiadasUCU.DTO
         public int Position { get; set; }
         public int ParticipantId { get; set; }
         public int CompetitionId { get; set; }
+
+        public int JudgeId { get; set; }
     }
 }

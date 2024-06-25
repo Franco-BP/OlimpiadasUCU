@@ -9,7 +9,8 @@ namespace OlimpiadasUCU.Models
         public float ResultValue { get; set; }
         public string Comment { get; set; }
         public int Position { get; set; }
-        public int ParticipantId { get; set; }
-        public int CompetitionId { get; set; }
+        public Participant ParticipantId { get; set; }
+        public Competition CompetitionId { get; set; }
+        public int JudgeId { get; set; }
     }
 }

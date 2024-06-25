@@ -25,7 +25,6 @@ public class ResultServiceImpl : IResultService
     public ResultDTO Create(ResultDTO resultDTO)
     {
         return _repository.Create(resultDTO);
-
     }
 
     public ResultDTO Update(ResultDTO resultDTO)

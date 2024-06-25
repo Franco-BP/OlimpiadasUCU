@@ -29,22 +29,9 @@ public class ResultRepository : IResultRepository
 
     public ResultDTO Create(ResultDTO resultDTO)
     {
-        throw new NotImplementedException("Crear by ResultDTO is not supported for Result.");
-    }
-
-    public ResultDTO Create(ResultDTO resultDTO)
-    {
-        var newResult = new Result
-        {
-            Id = _database.Results.Any() ? _database.Results.Max(r => r.Id) + 1 : 1,
-            ResultValue = resultDTO.ResultValue,
-            Comment = resultDTO.Comment,
-            Position = resultDTO.Position
-
-        };
-
-        _database.Results.Add(newResult);
-        return _mapper.Map<ResultDTO>(newResult);
+        var result = _mapper.Map<Result>(resultDTO);
+        _database.Results.Add(result);
+        return resultDTO;
     }
 
     public ResultDTO Update(ResultDTO resultDTO)
@@ -54,9 +41,6 @@ public class ResultRepository : IResultRepository
         existingResult.ResultValue = resultDTO.ResultValue;
         existingResult.Comment = resultDTO.Comment;
         existingResult.Position = resultDTO.Position;
-        existingResult.ParticipantId = resultDTO.ParticipantId;
-        existingResult.CompetitionId = resultDTO.CompetitionId;
-
         return _mapper.Map<ResultDTO>(existingResult);
     }
 
