@@ -29,7 +29,7 @@ public class PopulateController() : ControllerBase
       };
       database.JudgesRegistered.Add(judge);
 
-      Competition competition = new()
+      GroupCompetition competition = new()
       {
           Id = i,
           Round = i + 10,
