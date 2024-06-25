@@ -9,5 +9,6 @@ namespace OlimpiadasUCU.Models
         public int Round { get; set; }  // Nombre de la competencia
         public String Description { get; set; }  // Ubicación de la competencia
         public DateTime Date { get; set; }  // Fecha de la competencia
+        public String JudgeNickname { get; set; }
     }
 }

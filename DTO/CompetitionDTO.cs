@@ -9,5 +9,7 @@ public class CompetitionDTO
 
     public DateTime Date { get; set; }
 
+    public String JudgeNickname { get; set; }
+
     //public List<Participantes  { get; set; } 
 }

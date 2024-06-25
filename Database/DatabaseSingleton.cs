@@ -20,4 +20,6 @@ public class DatabaseSingleton
   public readonly List<Judge> JudgesRegistered;
 
   public readonly List<Competition> Competitions = new List<Competition>();
+
+  public readonly List<Result> Results = new List<Result>();
 }
