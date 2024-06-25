@@ -27,9 +27,15 @@ public class WebApplicationDirector
     Builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
     Builder.Services.AddScoped<IJudgeService, JudgeServiceImpl>();
     Builder.Services.AddScoped<IJudgesRepository, JudgesRepository>();
+
     Builder.Services.AddScoped<ICompetitionService, CompetitionServiceImpl>();
     Builder.Services.AddScoped<ICompetitionsRepository, CompetitionsRepository>();
 
+    Builder.Services.AddScoped<ITeamService, TeamServiceImpl>();
+    Builder.Services.AddScoped<ITeamRepository, TeamRepository>();
+
+    Builder.Services.AddScoped<IParticipantService, ParticipantServiceImpl>();
+    Builder.Services.AddScoped<IParticipantRepository, ParticipantRepository>();
     return Builder;
   }
 }

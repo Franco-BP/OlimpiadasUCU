@@ -35,15 +35,14 @@ public class JudgeController(IJudgeService judgeService) : ControllerBase
   [HttpPut]
   public JudgeDTO Update([FromBody] JudgeDTO judgeDTO)
   {
-    /*  NOT IMPLEMENTED  */
-    return new JudgeDTO();
+    return JudgeService.Update(judgeDTO);
   }
 
-  // DELETE > 'api/judge/{nickname}
+  // DELETE > 'api/judge/{id}
   [HttpDelete("{nickname}")]
-  public void Delete(string nickname)
+  public void Delete(int id)
   {
-    /////////
+    JudgeService.Delete(id);
   }
 
   // POST > 'api/judge/login'
@@ -51,5 +50,6 @@ public class JudgeController(IJudgeService judgeService) : ControllerBase
   public JudgeDTO Login([FromBody] JudgeDTO judgeDTO)
   {
     return JudgeService.Login(judgeDTO);
+
   }
 }

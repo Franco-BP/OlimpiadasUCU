@@ -8,6 +8,4 @@ public class CompetitionDTO
     public String Description { get; set; }
 
     public DateTime Date { get; set; }
-
-    //public List<Participantes  { get; set; } 
 }

@@ -6,37 +6,37 @@ namespace OlimpiadasUCU.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CompetitionController : ControllerBase
+public class ParticipantController : ControllerBase
 {
-    private readonly ICompetitionService _service;
+    private readonly IParticipantService _service;
 
-    public CompetitionController(ICompetitionService service)
+    public ParticipantController(IParticipantService service)
     {
         _service = service;
     }
 
     [HttpGet("{id}")]
-    public CompetitionDTO Get(int id)
+    public ParticipantDTO Get(int id)
     {
         return _service.Get(id);
     }
 
     [HttpGet("getAll")]
-    public List<CompetitionDTO> GetAll()
+    public List<ParticipantDTO> GetAll()
     {
         return _service.GetAll();
     }
 
     [HttpPost]
-    public CompetitionDTO Create([FromBody] CompetitionDTO competitionDTO)
+    public ParticipantDTO Create([FromBody] ParticipantDTO participantDTO)
     {
-        return _service.Create(competitionDTO);
+        return _service.Create(participantDTO);
     }
 
     [HttpPut]
-    public CompetitionDTO Update([FromBody] CompetitionDTO competitionDTO)
+    public ParticipantDTO Update([FromBody] ParticipantDTO participantDTO)
     {
-        return _service.Update(competitionDTO);
+        return _service.Update(participantDTO);
     }
 
     [HttpDelete("{id}")]
