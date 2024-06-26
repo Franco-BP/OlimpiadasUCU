@@ -36,6 +36,9 @@ public class WebApplicationDirector
 
     Builder.Services.AddScoped<IParticipantService, ParticipantServiceImpl>();
     Builder.Services.AddScoped<IParticipantRepository, ParticipantRepository>();
+
+    Builder.Services.AddScoped<IResultService, ResultServiceImpl>();
+    Builder.Services.AddScoped<IResultRepository, ResultRepository>();
     return Builder;
   }
 }

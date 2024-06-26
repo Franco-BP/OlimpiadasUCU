@@ -27,6 +27,12 @@ public class ResultController : ControllerBase
         return _service.GetAll();
     }
 
+    [HttpGet("getAllByParticipantId/{id}")]
+    public List<ResultDTO> GetAllByParticipantId(int id)
+    {
+        return _service.GetAllByParticipantId(id);
+    }
+
     [HttpPost]
     public ResultDTO Create([FromBody] ResultDTO resultDTO)
     {

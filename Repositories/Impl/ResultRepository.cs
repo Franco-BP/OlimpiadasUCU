@@ -27,6 +27,11 @@ public class ResultRepository : IResultRepository
         return _database.Results.Select(c => _mapper.Map<ResultDTO>(c)).ToList();
     }
 
+    public List<ResultDTO> GetAllByParticipantId(int id)
+    {
+        return _database.Results.Where(c => c.ParticipantId.Id == id).Select(c => _mapper.Map<ResultDTO>(c)).ToList();
+    }
+
     public ResultDTO Create(ResultDTO resultDTO)
     {
         var result = _mapper.Map<Result>(resultDTO);

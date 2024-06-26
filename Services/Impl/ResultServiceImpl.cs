@@ -22,6 +22,11 @@ public class ResultServiceImpl : IResultService
         return _repository.GetAll();
     }
 
+    public List<ResultDTO> GetAllByParticipantId(int id)
+    {
+        return _repository.GetAllByParticipantId(id);
+    }
+
     public ResultDTO Create(ResultDTO resultDTO)
     {
         return _repository.Create(resultDTO);
